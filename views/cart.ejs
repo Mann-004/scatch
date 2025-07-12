@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add to cart</title>
+</head>
+
+<%- include('./partials/header') %>
+
+<div class="px-4 py-8 max-w-6xl mx-auto space-y-8">
+  <% user.cart.forEach(function(item){ %>
+    <!-- Compact Cart Item Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-6 bg-white p-4 rounded-md shadow-sm">
+      
+      <!-- Left: Product Image & Controls -->
+      <div class="space-y-3">
+        <!-- Product Image -->
+        <div class="w-full h-60 flex justify-center items-center rounded-md bg-[<%= item.bgcolor %>]">
+          <img class="h-[20rem] object-contain" src="data:image/jpeg;base64,<%= item.image.toString('base64') %>" alt="">
+        </div>
+
+        <!-- Product Name & Quantity -->
+        <div class="w-full flex justify-between px-3 py-2 rounded bg-[<%= item.panelcolor %>] text-[<%= item.textcolor %>]">
+          <h3 class="text-xl font-semibold"><%= item.name %></h3>
+         
+        </div>
+
+        <!-- Net Total -->
+        <div class="flex justify-between px-3 text-sm">
+          <span>Net Total</span>
+          <span class="font-medium text-green-600">₹ <%= item.price + 20 - item.discount %></span>
+        </div>
+      </div>
+
+      <!-- Right: Price Breakdown -->
+      <div class="flex flex-col justify-between space-y-4">
+        <div>
+          <h3 class="text-xl font-bold mb-2">Price Breakdown</h3>
+          <div class="space-y-2 text-sm text-gray-700">
+            <div class="flex justify-between">
+              <span>Total MRP</span>
+              <span>₹ <%= item.price %></span>
+            </div>
+            <div class="flex justify-between">
+              <span>Discount</span>
+              <span>- ₹ <%= item.discount %></span>
+            </div>
+            <div class="flex justify-between">
+              <span>Platform Fee</span>
+              <span>₹ 20</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Shipping</span>
+              <span class="text-green-600">FREE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Amount -->
+        <div class="border-t pt-3 mt-2">
+          <div class="flex justify-between items-center">
+            <span class="text-base font-semibold">Total</span>
+            <span class="text-base font-bold text-green-600">₹ <%= item.price + 20 - item.discount %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('./partials/footer') %>

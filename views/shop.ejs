@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scatch </title>
+</head>
+
+
+<%- include('./partials/header') %>
+
+  <% if(success.length>0){ %>
+    <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md  bg-red-500 "
+      id="flash-message">
+      <span class="inline-block mt-1 mb-1 text-white">
+        <%= success %>
+      </span>
+    </div>
+    <% } %>
+      <section class="bg-white text-black">
+
+        <div class="text-center py-10">
+          <h1 class="text-3xl font-bold">SHOP BY CATEGORY</h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 pb-10">
+
+          <!-- Luggage Card -->
+          <div class="relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/images/88G408106_2.jpeg" alt="Luggage"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-40 text-white p-6 flex flex-col justify-end">
+              <h2 class="text-xl font-semibold mb-2">Embrace your wanderlust,<br>explore boldly</h2>
+              <p class="text-lg font-bold">LUGGAGE</p>
+              <a href="/products/luggage" class="mt-2 text-sm underline">MORE</a>
+            </div>
+          </div>
+
+          <!-- Backpacks Card -->
+          <div class="relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/images/437x530px_GRID-CAT-BACKPACKS_Desktop (1).jpeg" alt="Backpacks"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-30 text-white p-6 flex flex-col justify-end">
+              <h2 class="text-xl font-semibold mb-2">Brett 3.0<br>Smart gear for mode moguls</h2>
+              <p class="text-lg font-bold">BACKPACKS</p>
+              <a href="/products/backpacks" class="mt-2 text-sm underline">MORE</a>
+            </div>
+          </div>
+
+          <!-- Duffles Card -->
+          <div class="relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/images/437x530px_GRID-CAT-DUFFLES_Mobile.jpeg" alt="Duffles"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black bg-opacity-40 text-white p-6 flex flex-col justify-end">
+              <h2 class="text-xl font-semibold mb-2">The heart<br>of travel</h2>
+              <p class="text-lg font-bold">DUFFLES</p>
+              <a href="/products/duffles" class="mt-2 text-sm underline">MORE</a>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <div class="w-4/5 h-px bg-gray-300 mx-auto my-6"></div>
+      <div class="w-[100%] mx-auto  px-4 flex flex-col gap-8  "
+        style="padding: 6rem; background-color: rgb(220 252 231 / 53%);">
+
+
+        <!-- Heading and Paragraph -->
+        <div class="text-center space-y-3">
+          <h2 class="text-4xl font-bold">Shop Products</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Discover our wide range of high-quality travel gear designed for every journey. From stylish suitcases to
+            versatile backpacks, find the perfect companion for your next adventure.
+          </p>
+        </div>
+
+        
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          <% products.forEach(function(product){ %>
+            <div class="w-full rounded overflow-hidden shadow hover:shadow-lg transition duration-300">
+
+              <!-- Image Section -->
+              <div class="w-full h-52 flex items-center justify-center  "
+                style="height: 21rem; background-color: #ffffff;">
+                <img class="h-[15rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                  alt="Product Image">
+              </div>
+
+              <!-- Info Section -->
+              <div class="flex justify-between items-center px-4 py-4  text-[<%= product.textcolor %>]"
+                style="background-color: #ffffffa6;">
+                <div>
+                  <h3 class="text-xl font-bold text-black">
+                    <%= product.name %>
+                  </h3>
+                  <h4 class="text-l text-black">₹ <%= product.price %>
+                  </h4>
+                </div>
+                <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gray-100"
+                  href="/addtocart/<%= product._id %>">
+                  <i class="ri-add-line text-black texl-l"></i>
+                </a>
+              </div>
+
+            </div>
+            <% }) %>
+        </div>
+      </div>
+
+      <div class="overflow-hidden whitespace-nowrap bg-red-500 text-white py-2">
+        <div class="inline-block px-4 animate-marquee">
+          <sapn> Free Delivery in All India </sapn> — <span> Free Delivery in All India </sapn> — <span> Free Delivery
+              in All India —<span>
+        </div>
+      </div>
+
+      <!-- new arrival section -->
+      <section class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-6 py-20">
+        <!-- Left Text Section -->
+        <div class="w-full md:w-1/2 mb-10 md:mb-0">
+          <h2 class="text-3xl font-bold mb-4">NEW ARRIVALS</h2>
+          <h3 class="text-lg font-semibold">AEROSTEP <span class="text-red-600">RS. 4,550.00</span>
+            <span class="line-through text-gray-500 ml-2">RS. 9,100.00</span>
+          </h3>
+          <p class="mt-4 text-gray-700">
+            Shop new carry-on luggage to backpacks. Freshen up your next trip with the latest in luggage and travel
+            gear.
+          </p>
+          <button class="mt-6 bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">SHOP NOW</button>
+        </div>
+
+        <!-- Right Image Section -->
+        <div class="relative w-full md:w-1/2 flex justify-center">
+          <!-- Circular Badge -->
+          <div
+            class="absolute -top-8 left-12 w-32 h-32 flex items-center justify-center rounded-full border-2 border-red-600 text-xs text-red-600 font-bold rotate-12 "
+            style="z-index: 100;">
+            <div class="text-center transform rotate-[340deg]">NEW ARRIVAL - AEROSTEP</div>
+          </div>
+
+          <!-- Main Image -->
+          <div class="relative">
+            <img src="/images/800x800px_NEW-ARRIVAL-2_Desktop.jpeg" alt="Aerostep"
+              class="rounded-lg w-[400px] shadow-md">
+
+            <!-- Overlapping Small Image -->
+            <img src="/images/MD8006903_2.jpeg" alt="Braydon"
+              class="absolute bottom-0 right-0 w-[200px] rounded-lg shadow-lg border border-white transform translate-x-1/3 translate-y-1/3">
+          </div>
+        </div>
+      </section>
+
+
+
+      <div class="relative h-screen overflow-hidden">
+        <!-- Background Image -->
+        <img src="/images/2048X1083px_HERE-FOR-YOU_Desktop.webp" alt="Support Background"
+          class="w-full h-full object-cover absolute z-0" />
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+
+        <!-- Content -->
+        <div class="relative z-20 flex flex-col justify-center items-start h-full px-10 md:px-20">
+          <h1 class="text-white text-4xl md:text-5xl font-bold mb-4">HERE FOR YOU</h1>
+          <p class="text-white text-lg md:text-xl max-w-2xl">
+            Discover answers for our most frequently asked questions plus how to deal with any issue you might
+            encounter.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="relative">
+
+        <div class="text-center py-10">
+          <h1 class="text-3xl font-bold">BEST SELLS</h1>
+          <p class="mt-4 text-gray-700">
+            Shop new carry-on luggage to backpacks. Freshen up your next trip with the latest in luggage and travel
+            gear.
+          </p>
+        </div>
+
+        <!-- Left Arrow -->
+        <button onclick="scrollLeft()"
+          class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 shadow-md rounded-full">
+          &#8592;
+        </button>
+
+        <!-- Scrollable Container -->
+        <div id="scrollContainer" class="flex overflow-x-scroll no-scrollbar space-x-4 scroll-smooth"
+          style="    padding: 68px 26px;">
+          <!-- Product Card Example -->
+          <div class="min-w-[400px] bg-white p-4 rounded shadow-md text-center" style="width: 400px; height: 450px;">
+            <img src="/images/MD8006903_1.jpeg" alt="Airconic 2.0" class="w-full h-40 object-contain"
+              style="height: 20rem;" />
+            <h3 class="text-lg font-semibold">Airconic 2.0</h3>
+            <p class="text-green-600">Rs. 5,437.50 <span class="line-through text-gray-500">Rs. 7,250.00</span></p>
+          </div>
+
+          <!-- Repeat for other products -->
+          <div class="min-w-[400px] bg-white p-4 rounded shadow-md text-center" style="width: 400px; height: 450px;">
+            <img src="/images/AMTELBRUS60CMDARKBLUEFRONT2708.jpeg" alt="Circurity +" class="w-full h-40 object-contain"
+              style="height: 20rem;" />
+            <h3 class="text-lg font-semibold">Circurity +</h3>
+            <p class="text-green-600">Rs. 4,290.00 <span class="line-through text-gray-500">Rs. 8,580.00</span></p>
+          </div>
+
+          <div class="min-w-[400px] bg-white p-4 rounded shadow-md text-center" style="width: 400px; height: 450px;">
+            <img src="/images/88G408106_1.jpeg" alt="Airconic 2.0" class="w-full h-40 object-contain"
+              style="height: 20rem;" />
+            <h3 class="text-lg font-semibold">Airconic 2.0</h3>
+            <p class="text-green-600">Rs. 5,437.50 <span class="line-through text-gray-500">Rs. 7,250.00</span></p>
+          </div>
+
+          <div class="min-w-[400px] bg-white p-4 rounded shadow-md text-center" style="width: 400px; height: 450px;">
+            <img src="/images/SB0024001_1.jpeg" alt="Circurity +" class="w-full h-40 object-contain"
+              style="height: 20rem;" />
+            <h3 class="text-lg font-semibold">Circurity +</h3>
+            <p class="text-green-600">Rs. 4,290.00 <span class="line-through text-gray-500">Rs. 8,580.00</span></p>
+          </div>
+          <div class="min-w-[400px] bg-white p-4 rounded shadow-md text-center" style="width: 400px; height: 450px;">
+            <img src="/images/AMTTRENTO_54CMBLACKLEFT450750 (1).jpeg" alt="Circurity +"
+              class="w-full h-40 object-contain" style="height: 20rem;" />
+            <h3 class="text-lg font-semibold">Circurity +</h3>
+            <p class="text-green-600">Rs. 4,290.00 <span class="line-through text-gray-500">Rs. 8,580.00</span></p>
+          </div>
+
+          <!-- Add more cards here -->
+        </div>
+
+        <!-- Right Arrow -->
+        <button onclick="scrollRight()"
+          class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 shadow-md rounded-full">
+          &#8594;
+        </button>
+      </div>
+      <div class="w-4/5 h-px bg-gray-300 mx-auto my-6"></div>
+      <!-- JavaScript -->
+      <script>
+        const scrollContainer = document.getElementById("scrollContainer");
+
+        function scrollLeft() {
+          scrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+        }
+
+        function scrollRight() {
+          scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+        }
+
+        setTimeout(() => {
+          const flash = document.getElementById('flash-message');
+          if (flash) {
+            flash.style.transition = 'opacity 0.5s ease';
+            flash.style.opacity = '0';
+            setTimeout(() => flash.remove(), 500);
+          }
+        }, 3000);
+      </script>
+
+
+      <section class="max-w-7xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-10">
+
+        <!-- Left: Images -->
+        <div class="flex gap-4 w-full md:w-1/2 justify-center">
+          <!-- First Image -->
+          <img src="/images/300x375px_Overlapping_THE-BRAND-TODAY_3__Desktop.jpeg" alt="Kids Indoors"
+            class=" object-cover rounded-xl shadow-md" style="width: 18rem; height: 24rem;">
+
+          <!-- Second Image -->
+          <img src="/images/editorial-ready-set.jpeg" alt="Kids Outdoors"
+            class="w-52 h-72 object-cover rounded-xl shadow-md mt-6" style="width: 18rem; height: 24rem;">
+        </div>
+
+        <!-- Right: Text -->
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <h2 class="text-3xl font-bold mb-4">
+            THE BRAND <span class="text-red-600">TODAY</span>
+          </h2>
+          <p class="text-gray-700 text-lg mb-6">
+            Trusted by generation of travellers we're proud of our 90 year story.
+          </p>
+          <button
+            class="px-6 py-2 border border-red-600 text-red-600 rounded hover:bg-red-600 hover:text-white transition">
+            DISCOVER
+          </button>
+        </div>
+      </section>
+
+
+
+
+
+      <%- include('./partials/footer') %>

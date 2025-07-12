@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding: 10px 0;
+        }
+
+        .product-card {
+            min-width: 220px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            padding: 16px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 1rem;
+            margin: 10px 0 5px;
+        }
+
+        .product-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: green;
+        }
+
+        .product-card .price-original {
+            text-decoration: line-through;
+            color: gray;
+            font-size: 0.8rem;
+        }
+
+        /* Scrollbar styling (optional) */
+        .scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background: #eee;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        @keyframes marquee {
+            100% {
+                transform: translateX(100%);
+            }
+
+            0% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+        }
+
+     
+    </style>
+</head>
+
+<body class="font-['helvetica_now_display']">
+    <nav class="w-full flex justify-between items-center  px-5 py-3 bg-red-500 text-white " style="z-index: 200;">
+        <h3 class="text-4xl font-bold"> <a href="/shop" id="title">Scatch</a></h3>
+        <% var loggedIn=typeof loggedIn !=="undefined" ? loggedIn:true %>
+            <% if(loggedIn){%>
+
+                <div class="flex gap-7">
+                    <a href="/products/luggage">Luggage</a>
+                    <a href="/products/backpacks">Backpacks</a>
+                    <a href="/products/duffles">Duffles</a>
+                    <a href="/cart">Cart</a>
+                    <a href="/users/logout">Logout</a>
+
+                </div>
+
+
+                <%} %>
+
+    </nav>
+    <section class="relative w-full h-screen overflow-hidden">
+        <!-- Background Image -->
+        <img src="/images/Hero_banner_desk.jpeg" alt="Beach" class="absolute inset-0 w-full h-full object-cover z-0">
+        
+
+        <div class="absolute bottom-0 w-full h-[100px] bg-yellow-400 z-0 rounded-tl-[60%]"></div>
+        
+        <!-- Wave SVG -->
+        <svg class="absolute bottom-0 w-full bg-[#d59c3e]" viewBox="0 0 1440 320" style="position: relative; top:93%">
+            <path fill="#fbbf24" fill-opacity="1"
+                d="M0,96L48,106.7C96,117,192,139,288,144C384,149,480,139,576,133.3C672,128,768,128,864,117.3C960,107,1056,85,1152,80C1248,75,1344,85,1392,90.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+            </path>
+        </svg>
+
+
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    

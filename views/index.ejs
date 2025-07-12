@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register -Scatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        setTimeout(() => {
+            const flash = document.getElementById('flash-message');
+            if (flash) {
+                flash.style.transition = 'opacity 0.5s ease';
+                flash.style.opacity = '0';
+                setTimeout(() => flash.remove(), 500);
+            }
+        }, 3000);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<% if(error.length>0){ %>
+    <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500" id="flash-message">
+        <span class="inline-block mt-1 mb-1 text-white">
+            <%= error %>
+        </span>
+    </div>
+    <% } %>
+        <div class="min-h-screen bg-gradient-to-r from-blue-50 to-white flex items-center justify-center px-4">
+            <div class="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-800">
+                        Welcome to <span class="text-red-500">Scatch</span>
+                    </h3>
+                    <p class="text-gray-600 text-lg mt-2">Create your account</p>
+                </div>
+                <form autocomplete="off" action="/users/register" method="post" class="space-y-4">
+                    <input type="text" name="fullname" placeholder="Full Name"
+                        class="w-full px-4 py-2 border border-gray-200 rounded-lg bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                    <input type="email" name="email" placeholder="Email"
+                        class="w-full px-4 py-2 border border-gray-200 rounded-lg bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                    <input type="password" name="password" placeholder="Password"
+                        class="w-full px-4 py-2 border border-gray-200 rounded-lg bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                    <input type="submit" value="Create My Account"
+                        class="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-full transition duration-200" />
+                </form>
+                <p class="text-center text-sm text-gray-500 mt-4">
+                    Already have an account?
+                    <a href="/login" class="text-red-500 hover:underline">Log in here</a>
+                </p>
+            </div>
+        </div>
+
+    
+        <!-- <div class="w-1/2 flex items-center justify-center h-screen">
+        <div class="w-full px-32">
+            <h4 class="text-2xl capitalize mb-5">login your account</h4>
+            <form autocomplete="off" action="/users/login" method="post">
+                <input class="block bg-zinc-100 w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+                    type="email" placeholder="Email" name="email">
+                <input class="block bg-zinc-100 w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+                    type="password" placeholder="Password" name="password">
+                <input class="px-5 block rounded-full py-3 mt-2 bg-blue-500 text-white" type="submit"
+                    value="Login">
+            </form>
+        </div> -->

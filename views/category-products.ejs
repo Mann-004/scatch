@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+
+
+<%- include('./partials/header') %>
+
+    <h2 class="text-3xl font-bold mb-4 text-center mt-10">
+        <%= title %>
+    </h2>
+     <h2 class="text-xl font-semibold mb-6 text-center text-gray-600">Our favorite picks for the season</h2>
+    <!-- <div class="grid grid-cols-3 gap-6">
+  <% products.forEach(product => { %>
+    <div class="p-4 shadow rounded bg-white">
+      <img class="h-[15rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                  alt="Product Image">
+      <h3 class="font-semibold"><%= product.name %></h3>
+      <p>$<%= product.price %></p>
+      <% if (product.discount > 0) { %>
+        <p class="text-red-500">Discount: $<%= product.discount %></p>
+      <% } %>
+    </div>
+  <% }) %>
+</div> -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 " style="padding: 7rem 4rem; background-color: rgb(220 252 231 / 53%);">
+     
+
+        <% products.forEach(function(product){ %>
+            <div class="w-full rounded overflow-hidden shadow hover:shadow-lg transition duration-300">
+
+                <!-- Image Section -->
+                <div class="w-full h-52 flex items-center justify-center  "
+                    style="height: 21rem; background-color: #ffffff;">
+                    <img class="h-[15rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                        alt="Product Image">
+                </div>
+
+                <!-- Info Section -->
+                <div class="flex justify-between items-center px-4 py-4  text-[<%= product.textcolor %>]"
+                    style="background-color: #ffffffa6;">
+                    <div>
+                        <h3 class="text-xl font-bold text-black">
+                            <%= product.name %>
+                        </h3>
+                        <h4 class="text-l text-black">₹ <%= product.price %>
+                        </h4>
+                    </div>
+                    <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gray-100"
+                        href="/addtocart/<%= product._id %>">
+                        <i class="ri-add-line text-black texl-l"></i>
+                    </a>
+                </div>
+
+            </div>
+            <% }) %>
+    </div>
+
+    <%- include('./partials/footer') %>
